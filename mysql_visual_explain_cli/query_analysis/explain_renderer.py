@@ -19,18 +19,18 @@
 # along with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
 
-import mforms
-
-
-from workbench.log import log_error
-
-
-from workbench.graphics.canvas import VBoxFigure, Canvas, DiamondShapeFigure, RectangleShapeFigure, TextFigure, HFill, draw_varrow, draw_harrow
-from workbench.graphics.cairo_utils import ImageSurface, Context
-import cairo
-
 import io
 import json
+import logging
+
+from cairocffi import cairo
+
+from graphics.canvas import VBoxFigure, Canvas, DiamondShapeFigure, RectangleShapeFigure, TextFigure, HFill, draw_varrow, draw_harrow
+from graphics.cairo_utils import ImageSurface, Context
+
+
+def log_error(error):
+    logging.exception(error)
 
 
 def decode_json(text):
@@ -425,9 +425,7 @@ class NestedLoopNode(ExplainNode):
 
     @property
     def rows_count(self):
-        if self._context.server_version.is_supported_mysql_version_at_least(5, 7):
-            return self.child_below.rows_produced
-        return None
+        return self.child_below.rows_produced
 
 
     def get_read_eval_cost(self):

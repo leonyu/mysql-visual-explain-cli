@@ -19,7 +19,9 @@
 # along with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
 
-import cairo
+import cairocffi
+from cairocffi import cairo
+
 from math import ceil, floor, fabs, atan, pi
 
 
@@ -31,7 +33,7 @@ class Surface(object):
         return cairo.cairo_surface_status(self.s)
 
     def write_to_png(self, file):
-        cairo.cairo_surface_write_to_png(self.s, file)
+        cairo.cairo_surface_write_to_png(self.s, file.encode())
 
 
 class ImageSurface(Surface):
@@ -125,10 +127,10 @@ class Context(object):
         cairo.cairo_restore(self.cr)
  
     def set_dash(self, dashes, offset):
-        cairo.cairo_set_dash(self.cr, dashes, offset)
+        cairo.cairo_set_dash(self.cr, dashes, 1, offset)
 
     def set_font(self, family, italic=False, bold=False):
-        cairo.cairo_select_font_face(self.cr, family, cairo.CAIRO_FONT_SLANT_ITALIC if italic else cairo.CAIRO_FONT_SLANT_NORMAL, cairo.CAIRO_FONT_WEIGHT_BOLD if bold else cairo.CAIRO_FONT_WEIGHT_NORMAL)
+        cairo.cairo_select_font_face(self.cr, family.encode(), cairo.CAIRO_FONT_SLANT_ITALIC if italic else cairo.CAIRO_FONT_SLANT_NORMAL, cairo.CAIRO_FONT_WEIGHT_BOLD if bold else cairo.CAIRO_FONT_WEIGHT_NORMAL)
 
     def set_font_size(self, size):
         cairo.cairo_set_font_size(self.cr, size)
@@ -155,7 +157,7 @@ class Context(object):
         cairo.cairo_mask_surface(self.cr, surface.s, x, y)
 
     def show_text(self, text):
-        cairo.cairo_show_text(self.cr, text)
+        cairo.cairo_show_text(self.cr, text.encode())
 
     def rounded_rect(self, x, y, w, h, r):
         self.move_to(x+r, y)
@@ -202,7 +204,9 @@ class Context(object):
         cairo.cairo_stroke_preserve(self.cr)
 
     def text_extents(self, text):
-        return cairo.cairo_text_extents(self.cr, text)
+        extents = cairocffi.ffi.new('cairo_text_extents_t *')
+        cairo.cairo_text_extents(self.cr, text.encode(), extents)
+        return extents
 
 
 
