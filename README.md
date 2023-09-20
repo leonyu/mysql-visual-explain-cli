@@ -32,12 +32,14 @@ poetry run python ./mysql_visual_explain_cli explain.json explain.png
 
 ## Notes
 
-The version of Python bundled with MySQL Workbench also seems to perform implicit `str` to `byte` conversion.
+The MySQL Workbench Python code calls Cairo C directly via [FFI](https://en.wikipedia.org/wiki/Foreign_function_interface) instead of the more common [Pycairo](https://pypi.org/project/pycairo/) library, thus this project depeneds on [CairoCFFI](https://pypi.org/project/cairocffi/)
 
-The MySQL Workbench code does not use the common Pycairo library, but instead calls Cairo C directly via FFI. The following C functions appear to have been patched or used a different version compare to what is distrubted with modern Debian distributions.
+The following C functions appear to have been patched or used a different version compare to what is distrubted with modern Debian distributions.
 
 * `cairo.cairo_text_extents()`
 * `cairo.cairo_set_dash()`
+
+The version of Python bundled with MySQL Workbench also seems to perform implicit `str` to `byte` conversion.
 
 ## License
 
