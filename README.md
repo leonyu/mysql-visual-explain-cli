@@ -4,17 +4,29 @@
 
 ## Usages
 
-### Debian
+### Install
 
 ```sh
 sudo apt-get install python3-cairocffi
 
-python3 ./mysql_visual_explain_cli explain.json explain.png
+curl -LO --output-dir ~ https://github.com/leonyu/mysql-visual-explain-cli/releases/download/2023.09.19/mysql_visual_explain_cli.pyz
 ```
 
-### Poetry
+### Convert JSON Explain file to PNG
+```
+python3 ~/mysql_visual_explain_cli.pyz explain.json explain.png
+```
+
+### Pipe EXPLAIN Output from MySQL to CLI
+
+```
+mysql example.com -ABN --raw -e "EXPLAIN FORMAT=JSON SELECT * FROM HelloWorld;" | python3 ~/mysql_visual_explain_cli.pyz - hello_world_explained.png
+```
+
+### Development (Poetry)
 
 ```sh
+poetry install
 poetry run python ./mysql_visual_explain_cli explain.json explain.png
 ```
 
