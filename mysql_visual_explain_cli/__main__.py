@@ -4,8 +4,11 @@ import argparse
 from query_analysis.explain_renderer import ExplainContext, decode_json
 
 
-def render(json_data: str, output_path: str):
-    ctx = ExplainContext(decode_json(json_data), None)
+def render(json_str: str, output_path: str):
+    json_data = decode_json(json_str)
+    if 'query_block' not in json_data:
+        raise ValueError('Input file does not contain a MySQL EXPLAIN JSON')
+    ctx = ExplainContext(json_data, None)
     ctx.init_canvas(None, None, lambda x, y, w, h: None)
     ctx.layout()
     ctx.export_to_png(output_path)

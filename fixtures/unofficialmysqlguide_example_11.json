@@ -1,0 +1,51 @@
+{
+  "query_block": {
+    "select_id": 1,
+    "cost_info": {
+      "query_cost": "24.83"
+    },
+    "table": {
+      "table_name": "Country",
+      "access_type": "range",
+      "possible_keys": [
+        "p",
+        "c",
+        "p_c",
+        "c_p"
+      ],
+      "key": "c_p",
+      "used_key_parts": [
+        "Continent",
+        "Population"
+      ],
+      "key_length": "5",
+      "rows_examined_per_scan": 32,
+      "rows_produced_per_join": 15,
+      "filtered": "100.00",
+      "index_condition": "((`world`.`Country`.`Continent` = 'Asia') and (`world`.`Country`.`Population` > 5000000))",
+      "cost_info": {
+        "read_cost": "18.00",
+        "eval_cost": "3.09",
+        "prefix_cost": "24.83",
+        "data_read_per_join": "3K"
+      },
+      "used_columns": [
+        "Code",
+        "Name",
+        "Continent",
+        "Region",
+        "SurfaceArea",
+        "IndepYear",
+        "Population",
+        "LifeExpectancy",
+        "GNP",
+        "GNPOld",
+        "LocalName",
+        "GovernmentForm",
+        "HeadOfState",
+        "Capital",
+        "Code2"
+      ]
+    }
+  }
+}

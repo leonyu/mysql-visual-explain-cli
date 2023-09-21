@@ -1,0 +1,81 @@
+{
+  "query_block": {
+    "select_id": 1,
+    "cost_info": {
+      "query_cost": "12.47"
+    },
+    "table": {
+      "table_name": "vCountrys_Per_Continent",
+      "access_type": "ref",
+      "possible_keys": [
+        "<auto_key0>"
+      ],
+      "key": "<auto_key0>",
+      "used_key_parts": [
+        "Continent"
+      ],
+      "key_length": "1",
+      "ref": [
+        "const"
+      ],
+      "rows_examined_per_scan": 10,
+      "rows_produced_per_join": 10,
+      "filtered": "100.00",
+      "cost_info": {
+        "read_cost": "10.39",
+        "eval_cost": "2.08",
+        "prefix_cost": "12.47",
+        "data_read_per_join": "166"
+      },
+      "used_columns": [
+        "Continent",
+        "Count"
+      ],
+      "materialized_from_subquery": {
+        "using_temporary_table": true,
+        "dependent": false,
+        "cacheable": true,
+        "query_block": {
+          "select_id": 2,
+          "cost_info": {
+            "query_cost": "56.80"
+          },
+          "grouping_operation": {
+            "using_filesort": false,
+            "table": {
+              "table_name": "Country",
+              "access_type": "index",
+              "possible_keys": [
+                "PRIMARY",
+                "p",
+                "c",
+                "p_c",
+                "c_p",
+                "Name"
+              ],
+              "key": "c",
+              "used_key_parts": [
+                "Continent"
+              ],
+              "key_length": "1",
+              "rows_examined_per_scan": 239,
+              "rows_produced_per_join": 239,
+              "filtered": "100.00",
+              "using_index": true,
+              "cost_info": {
+                "read_cost": "9.00",
+                "eval_cost": "47.80",
+                "prefix_cost": "56.80",
+                "data_read_per_join": "61K"
+              },
+              "used_columns": [
+                "Code",
+                "Continent"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

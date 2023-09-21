@@ -1,0 +1,60 @@
+{
+  "query_block": {
+    "select_id": 1,
+    "ordering_operation": {
+      "using_filesort": true,
+      "grouping_operation": {
+        "using_temporary_table": true,
+        "using_filesort": true,
+        "buffer_result": {
+          "using_temporary_table": true,
+          "nested_loop": [
+            {
+              "table": {
+                "table_name": "st",
+                "access_type": "ref",
+                "possible_keys": [
+                  "PRIMARY",
+                  "state_idx",
+                  "state_st_idx"
+                ],
+                "key": "state_st_idx",
+                "used_key_parts": [
+                  "state"
+                ],
+                "key_length": "4",
+                "ref": [
+                  "const"
+                ],
+                "rows": 26889,
+                "filtered": 100,
+                "using_index": true
+              }
+            },
+            {
+              "table": {
+                "table_name": "content",
+                "access_type": "ref",
+                "possible_keys": [
+                  "ab_ce_idx",
+                  "transition_idx",
+                  "ab_plate_templ_idx"
+                ],
+                "key": "transition_idx",
+                "used_key_parts": [
+                  "transition_id"
+                ],
+                "key_length": "4",
+                "ref": [
+                  "transition_id"
+                ],
+                "rows": 1,
+                "filtered": 100
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

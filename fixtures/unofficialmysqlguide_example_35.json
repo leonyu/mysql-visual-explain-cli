@@ -1,0 +1,27 @@
+{
+  "query_block": {
+    "select_id": 1,
+    "cost_info": {
+      "query_cost": "2.00"
+    },
+    "table": {
+      "table_name": "users",
+      "access_type": "ALL",
+      "rows_examined_per_scan": 5,
+      "rows_produced_per_join": 5,
+      "filtered": "100.00",
+      "cost_info": {
+        "read_cost": "1.00",
+        "eval_cost": "1.00",
+        "prefix_cost": "2.00",
+        "data_read_per_join": "280"
+      },
+      "used_columns": [
+        "id",
+        "username",
+        "preferences"
+      ],
+      "attached_condition": "(json_extract(`test`.`users`.`preferences`,'$.notify_on_updates') = TRUE)"
+    }
+  }
+}

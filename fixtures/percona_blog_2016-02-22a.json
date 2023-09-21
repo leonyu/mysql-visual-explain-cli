@@ -1,0 +1,41 @@
+{
+  "query_block": {
+    "select_id": 1,
+    "cost_info": {
+      "query_cost": "89796.80"
+    },
+    "duplicates_removal": {
+      "using_temporary_table": true,
+      "using_filesort": false,
+      "table": {
+        "table_name": "titles",
+        "access_type": "index",
+        "possible_keys": [
+          "PRIMARY",
+          "emp_no"
+        ],
+        "key": "emp_no",
+        "used_key_parts": [
+          "emp_no"
+        ],
+        "key_length": "4",
+        "rows_examined_per_scan": 442724,
+        "rows_produced_per_join": 442724,
+        "filtered": "100.00",
+        "using_index": true,
+        "cost_info": {
+          "read_cost": "1252.00",
+          "eval_cost": "88544.80",
+          "prefix_cost": "89796.80",
+          "data_read_per_join": "27M"
+        },
+        "used_columns": [
+          "emp_no",
+          "title",
+          "from_date"
+        ],
+        "attached_condition": "(year(`employees`.`titles`.`from_date`) > '1990')"
+      }
+    }
+  }
+}

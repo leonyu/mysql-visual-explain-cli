@@ -1,0 +1,75 @@
+{
+  "query_block": {
+    "select_id": 1,
+    "cost_info": {
+      "query_cost": "1893.30"
+    },
+    "nested_loop": [
+      {
+        "table": {
+          "table_name": "Country",
+          "access_type": "ref",
+          "possible_keys": [
+            "PRIMARY",
+            "c"
+          ],
+          "key": "c",
+          "used_key_parts": [
+            "Continent"
+          ],
+          "key_length": "1",
+          "ref": [
+            "const"
+          ],
+          "rows_examined_per_scan": 51,
+          "rows_produced_per_join": 51,
+          "filtered": "100.00",
+          "using_index": true,
+          "cost_info": {
+            "read_cost": "1.02",
+            "eval_cost": "51.00",
+            "prefix_cost": "52.02",
+            "data_read_per_join": "13K"
+          },
+          "used_columns": [
+            "Code",
+            "Continent"
+          ]
+        }
+      },
+      {
+        "table": {
+          "table_name": "City",
+          "access_type": "ref",
+          "possible_keys": [
+            "CountryCode"
+          ],
+          "key": "CountryCode",
+          "used_key_parts": [
+            "CountryCode"
+          ],
+          "key_length": "3",
+          "ref": [
+            "world.Country.Code"
+          ],
+          "rows_examined_per_scan": 18,
+          "rows_produced_per_join": 920,
+          "filtered": "100.00",
+          "cost_info": {
+            "read_cost": "920.64",
+            "eval_cost": "920.64",
+            "prefix_cost": "1893.30",
+            "data_read_per_join": "64K"
+          },
+          "used_columns": [
+            "ID",
+            "Name",
+            "CountryCode",
+            "District",
+            "Population"
+          ]
+        }
+      }
+    ]
+  }
+}

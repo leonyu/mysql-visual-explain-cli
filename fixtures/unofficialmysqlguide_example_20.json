@@ -1,0 +1,128 @@
+{
+  "query_block": {
+    "select_id": 1,
+    "cost_info": {
+      "query_cost": "19.90"
+    },
+    "nested_loop": [
+      {
+        "table": {
+          "table_name": "CityTmp",
+          "access_type": "ref",
+          "possible_keys": [
+            "<auto_key0>"
+          ],
+          "key": "<auto_key0>",
+          "used_key_parts": [
+            "Name"
+          ],
+          "key_length": "35",
+          "ref": [
+            "const"
+          ],
+          "rows_examined_per_scan": 5,
+          "rows_produced_per_join": 5,
+          "filtered": "100.00",
+          "cost_info": {
+            "read_cost": "4.90",
+            "eval_cost": "5.00",
+            "prefix_cost": "9.90",
+            "data_read_per_join": "360"
+          },
+          "used_columns": [
+            "ID",
+            "Name",
+            "CountryCode",
+            "District",
+            "Population"
+          ],
+          "materialized_from_subquery": {
+            "using_temporary_table": true,
+            "dependent": false,
+            "cacheable": true,
+            "query_block": {
+              "select_id": 2,
+              "cost_info": {
+                "query_cost": "98.00"
+              },
+              "table": {
+                "table_name": "City",
+                "access_type": "ref",
+                "possible_keys": [
+                  "CountryCode"
+                ],
+                "key": "CountryCode",
+                "used_key_parts": [
+                  "CountryCode"
+                ],
+                "key_length": "3",
+                "ref": [
+                  "const"
+                ],
+                "rows_examined_per_scan": 49,
+                "rows_produced_per_join": 49,
+                "filtered": "100.00",
+                "cost_info": {
+                  "read_cost": "49.00",
+                  "eval_cost": "49.00",
+                  "prefix_cost": "98.00",
+                  "data_read_per_join": "3K"
+                },
+                "used_columns": [
+                  "ID",
+                  "Name",
+                  "CountryCode",
+                  "District",
+                  "Population"
+                ]
+              }
+            }
+          }
+        }
+      },
+      {
+        "table": {
+          "table_name": "Country",
+          "access_type": "eq_ref",
+          "possible_keys": [
+            "PRIMARY"
+          ],
+          "key": "PRIMARY",
+          "used_key_parts": [
+            "Code"
+          ],
+          "key_length": "3",
+          "ref": [
+            "CityTmp.CountryCode"
+          ],
+          "rows_examined_per_scan": 1,
+          "rows_produced_per_join": 5,
+          "filtered": "100.00",
+          "cost_info": {
+            "read_cost": "5.00",
+            "eval_cost": "5.00",
+            "prefix_cost": "19.90",
+            "data_read_per_join": "1K"
+          },
+          "used_columns": [
+            "Code",
+            "Name",
+            "Continent",
+            "Region",
+            "SurfaceArea",
+            "IndepYear",
+            "Population",
+            "LifeExpectancy",
+            "GNP",
+            "GNPOld",
+            "LocalName",
+            "GovernmentForm",
+            "HeadOfState",
+            "Capital",
+            "Code2"
+          ]
+        }
+      }
+    ]
+  }
+}

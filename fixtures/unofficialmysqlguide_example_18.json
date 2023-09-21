@@ -1,0 +1,80 @@
+{
+  "query_block": {
+    "select_id": 1,
+    "cost_info": {
+      "query_cost": "862.60"
+    },
+    "table": {
+      "table_name": "City",
+      "access_type": "ALL",
+      "rows_examined_per_scan": 4188,
+      "rows_produced_per_join": 4188,
+      "filtered": "100.00",
+      "cost_info": {
+        "read_cost": "25.00",
+        "eval_cost": "837.60",
+        "prefix_cost": "862.60",
+        "data_read_per_join": "294K"
+      },
+      "used_columns": [
+        "ID",
+        "Name",
+        "CountryCode",
+        "District",
+        "Population"
+      ],
+      "attached_condition": "(not(<in_optimizer>(`world`.`City`.`CountryCode`,`world`.`City`.`CountryCode` in ( <materialize> (/* select#2 */ select `world`.`Country`.`Code` from `world`.`Country` where (`world`.`Country`.`Continent` in ('Asia','Europe','North America')) ), <primary_index_lookup>(`world`.`City`.`CountryCode` in <temporary table> on <auto_key> where ((`world`.`City`.`CountryCode` = `materialized-subquery`.`code`)))))))",
+      "attached_subqueries": [
+        {
+          "table": {
+            "table_name": "<materialized_subquery>",
+            "access_type": "eq_ref",
+            "key": "<auto_key>",
+            "key_length": "3",
+            "rows_examined_per_scan": 1,
+            "materialized_from_subquery": {
+              "using_temporary_table": true,
+              "dependent": true,
+              "cacheable": false,
+              "query_block": {
+                "select_id": 2,
+                "cost_info": {
+                  "query_cost": "54.67"
+                },
+                "table": {
+                  "table_name": "Country",
+                  "access_type": "range",
+                  "possible_keys": [
+                    "PRIMARY",
+                    "c",
+                    "c_p"
+                  ],
+                  "key": "c",
+                  "used_key_parts": [
+                    "Continent"
+                  ],
+                  "key_length": "1",
+                  "rows_examined_per_scan": 134,
+                  "rows_produced_per_join": 134,
+                  "filtered": "100.00",
+                  "using_index": true,
+                  "cost_info": {
+                    "read_cost": "27.87",
+                    "eval_cost": "26.80",
+                    "prefix_cost": "54.67",
+                    "data_read_per_join": "34K"
+                  },
+                  "used_columns": [
+                    "Code",
+                    "Continent"
+                  ],
+                  "attached_condition": "(`world`.`Country`.`Continent` in ('Asia','Europe','North America'))"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

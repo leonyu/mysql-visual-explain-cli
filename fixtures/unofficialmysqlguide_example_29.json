@@ -1,0 +1,93 @@
+{
+  "query_block": {
+    "union_result": {
+      "using_temporary_table": true,
+      "table_name": "<union1,2>",
+      "access_type": "ALL",
+      "query_specifications": [
+        {
+          "dependent": false,
+          "cacheable": true,
+          "query_block": {
+            "select_id": 1,
+            "cost_info": {
+              "query_cost": "58.80"
+            },
+            "table": {
+              "table_name": "City",
+              "access_type": "ref",
+              "possible_keys": [
+                "CountryCode"
+              ],
+              "key": "CountryCode",
+              "used_key_parts": [
+                "CountryCode"
+              ],
+              "key_length": "3",
+              "ref": [
+                "const"
+              ],
+              "rows_examined_per_scan": 49,
+              "rows_produced_per_join": 49,
+              "filtered": "100.00",
+              "cost_info": {
+                "read_cost": "49.00",
+                "eval_cost": "9.80",
+                "prefix_cost": "58.80",
+                "data_read_per_join": "3K"
+              },
+              "used_columns": [
+                "ID",
+                "Name",
+                "CountryCode",
+                "District",
+                "Population"
+              ]
+            }
+          }
+        },
+        {
+          "dependent": false,
+          "cacheable": true,
+          "query_block": {
+            "select_id": 2,
+            "cost_info": {
+              "query_cost": "129.80"
+            },
+            "table": {
+              "table_name": "City",
+              "access_type": "ref",
+              "possible_keys": [
+                "CountryCode"
+              ],
+              "key": "CountryCode",
+              "used_key_parts": [
+                "CountryCode"
+              ],
+              "key_length": "3",
+              "ref": [
+                "const"
+              ],
+              "rows_examined_per_scan": 274,
+              "rows_produced_per_join": 274,
+              "filtered": "100.00",
+              "cost_info": {
+                "read_cost": "75.00",
+                "eval_cost": "54.80",
+                "prefix_cost": "129.80",
+                "data_read_per_join": "19K"
+              },
+              "used_columns": [
+                "ID",
+                "Name",
+                "CountryCode",
+                "District",
+                "Population"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  }
+}

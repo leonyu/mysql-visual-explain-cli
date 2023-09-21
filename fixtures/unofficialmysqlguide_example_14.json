@@ -1,0 +1,89 @@
+{
+  "query_block": {
+    "select_id": 1,
+    "cost_info": {
+      "query_cost": "1.00"
+    },
+    "table": {
+      "table_name": "Country",
+      "access_type": "const",
+      "possible_keys": [
+        "PRIMARY"
+      ],
+      "key": "PRIMARY",
+      "used_key_parts": [
+        "Code"
+      ],
+      "key_length": "3",
+      "ref": [
+        "const"
+      ],
+      "rows_examined_per_scan": 1,
+      "rows_produced_per_join": 1,
+      "filtered": "100.00",
+      "cost_info": {
+        "read_cost": "0.00",
+        "eval_cost": "1.00",
+        "prefix_cost": "0.00",
+        "data_read_per_join": "264"
+      },
+      "used_columns": [
+        "Code",
+        "Name",
+        "Continent",
+        "Region",
+        "SurfaceArea",
+        "IndepYear",
+        "Population",
+        "LifeExpectancy",
+        "GNP",
+        "GNPOld",
+        "LocalName",
+        "GovernmentForm",
+        "HeadOfState",
+        "Capital",
+        "Code2"
+      ]
+    },
+    "optimized_away_subqueries": [
+      {
+        "dependent": false,
+        "cacheable": true,
+        "query_block": {
+          "select_id": 2,
+          "cost_info": {
+            "query_cost": "2.00"
+          },
+          "table": {
+            "table_name": "City",
+            "access_type": "ref",
+            "possible_keys": [
+              "n"
+            ],
+            "key": "n",
+            "used_key_parts": [
+              "Name"
+            ],
+            "key_length": "35",
+            "ref": [
+              "const"
+            ],
+            "rows_examined_per_scan": 1,
+            "rows_produced_per_join": 1,
+            "filtered": "100.00",
+            "cost_info": {
+              "read_cost": "1.00",
+              "eval_cost": "1.00",
+              "prefix_cost": "2.00",
+              "data_read_per_join": "72"
+            },
+            "used_columns": [
+              "Name",
+              "CountryCode"
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

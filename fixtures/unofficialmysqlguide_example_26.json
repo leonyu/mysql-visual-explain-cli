@@ -1,0 +1,44 @@
+{
+  "query_block": {
+    "select_id": 1,
+    "cost_info": {
+      "query_cost": "11.23"
+    },
+    "grouping_operation": {
+      "using_filesort": false,
+      "table": {
+        "table_name": "Country",
+        "access_type": "ref",
+        "possible_keys": [
+          "PRIMARY",
+          "p",
+          "c",
+          "p_c",
+          "c_p",
+          "Name"
+        ],
+        "key": "c",
+        "used_key_parts": [
+          "Continent"
+        ],
+        "key_length": "1",
+        "ref": [
+          "const"
+        ],
+        "rows_examined_per_scan": 51,
+        "rows_produced_per_join": 51,
+        "filtered": "100.00",
+        "using_index": true,
+        "cost_info": {
+          "read_cost": "1.03",
+          "eval_cost": "10.20",
+          "prefix_cost": "11.23",
+          "data_read_per_join": "13K"
+        },
+        "used_columns": [
+          "Continent"
+        ]
+      }
+    }
+  }
+}

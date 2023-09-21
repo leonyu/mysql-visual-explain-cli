@@ -1,0 +1,80 @@
+{
+  "query_block": {
+    "select_id": 1,
+    "cost_info": {
+      "query_cost": "1.20"
+    },
+    "table": {
+      "table_name": "Country",
+      "access_type": "ref",
+      "possible_keys": [
+        "PRIMARY"
+      ],
+      "key": "PRIMARY",
+      "used_key_parts": [
+        "Code"
+      ],
+      "key_length": "3",
+      "ref": [
+        "const"
+      ],
+      "rows_examined_per_scan": 1,
+      "rows_produced_per_join": 1,
+      "filtered": "100.00",
+      "cost_info": {
+        "read_cost": "1.00",
+        "eval_cost": "0.20",
+        "prefix_cost": "1.20",
+        "data_read_per_join": "264"
+      },
+      "used_columns": [
+        "Code",
+        "Name",
+        "Continent",
+        "Region",
+        "SurfaceArea",
+        "IndepYear",
+        "Population",
+        "LifeExpectancy",
+        "GNP",
+        "GNPOld",
+        "LocalName",
+        "GovernmentForm",
+        "HeadOfState",
+        "Capital",
+        "Code2"
+      ],
+      "attached_condition": "(`world`.`Country`.`Code` = (/* select#2 */ select `world`.`City`.`CountryCode` from `world`.`City` where (`world`.`City`.`Name` = 'Toronto')))",
+      "attached_subqueries": [
+        {
+          "dependent": false,
+          "cacheable": true,
+          "query_block": {
+            "select_id": 2,
+            "cost_info": {
+              "query_cost": "862.60"
+            },
+            "table": {
+              "table_name": "City",
+              "access_type": "ALL",
+              "rows_examined_per_scan": 4188,
+              "rows_produced_per_join": 418,
+              "filtered": "10.00",
+              "cost_info": {
+                "read_cost": "778.84",
+                "eval_cost": "83.76",
+                "prefix_cost": "862.60",
+                "data_read_per_join": "29K"
+              },
+              "used_columns": [
+                "Name",
+                "CountryCode"
+              ],
+              "attached_condition": "(`world`.`City`.`Name` = 'Toronto')"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
