@@ -1,0 +1,34 @@
+{
+  "query_block": {
+    "select_id": 1,
+    "cost_info": {
+      "query_cost": "3.67"
+    },
+    "table": {
+      "table_name": "country",
+      "access_type": "range",
+      "possible_keys": [
+        "PRIMARY"
+      ],
+      "key": "PRIMARY",
+      "used_key_parts": [
+        "Code"
+      ],
+      "key_length": "12",
+      "rows_examined_per_scan": 17,
+      "rows_produced_per_join": 17,
+      "filtered": "100.00",
+      "cost_info": {
+        "read_cost": "1.97",
+        "eval_cost": "1.70",
+        "prefix_cost": "3.67",
+        "data_read_per_join": "16K"
+      },
+      "used_columns": [
+        "Code",
+        "Name"
+      ],
+      "attached_condition": "(`world`.`country`.`Code` like 'A%')"
+    }
+  }
+}

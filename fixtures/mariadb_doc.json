@@ -1,0 +1,12 @@
+{
+  "query_block": {
+    "select_id": 1,
+    "table": {
+      "table_name": "t1",
+      "access_type": "ALL",
+      "rows": 1000,
+      "filtered": 100,
+      "attached_condition": "(t1.col1 = 1)"
+    }
+  }
+}

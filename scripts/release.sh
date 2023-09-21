@@ -1,4 +1,9 @@
-#!/bin/sh
+#!/bin/bash
 
-python3 -m zipapp -c mysql_visual_explain_cli
-gh release create --generate-notes "$(date +%Y.%m.%d)" ./mysql_visual_explain_cli.pyz
+set -e
+
+SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
+
+source "$SCRIPT_DIR/build.sh"
+source "$SCRIPT_DIR/test.sh"
+gh release create --generate-notes "$(date +%Y.%m.%d)" ./dist/mysql_visual_explain_cli.pyz

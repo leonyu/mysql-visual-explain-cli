@@ -1,0 +1,54 @@
+{
+  "query_block": {
+    "select_id": 1,
+    "cost_info": {
+      "query_cost": "250601.60"
+    },
+    "table": {
+      "table_name": "salaries",
+      "access_type": "ALL",
+      "rows_examined_per_scan": 1240668,
+      "rows_produced_per_join": 413514,
+      "filtered": "33.33",
+      "cost_info": {
+        "read_cost": "167898.67",
+        "eval_cost": "82702.92",
+        "prefix_cost": "250601.60",
+        "data_read_per_join": "6M"
+      },
+      "used_columns": [
+        "emp_no",
+        "salary"
+      ],
+      "attached_condition": "(`employees`.`salaries`.`salary` > (/* select#2 */ select avg(`employees`.`salaries`.`salary`) from `employees`.`salaries`))",
+      "attached_subqueries": [
+        {
+          "dependent": false,
+          "cacheable": true,
+          "query_block": {
+            "select_id": 2,
+            "cost_info": {
+              "query_cost": "250601.80"
+            },
+            "table": {
+              "table_name": "salaries",
+              "access_type": "ALL",
+              "rows_examined_per_scan": 1240669,
+              "rows_produced_per_join": 1240669,
+              "filtered": "100.00",
+              "cost_info": {
+                "read_cost": "2468.00",
+                "eval_cost": "248133.80",
+                "prefix_cost": "250601.80",
+                "data_read_per_join": "18M"
+              },
+              "used_columns": [
+                "salary"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  }
+}
