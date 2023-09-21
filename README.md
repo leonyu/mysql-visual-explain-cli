@@ -9,7 +9,7 @@
 ```sh
 sudo apt-get install python3-cairocffi
 
-curl -LO --output-dir ~ https://github.com/leonyu/mysql-visual-explain-cli/releases/download/2023.09.21/mysql_visual_explain_cli.pyz
+curl -LO --output-dir ~ https://github.com/leonyu/mysql-visual-explain-cli/releases/latest/download/mysql_visual_explain_cli.pyz
 ```
 
 ### Convert JSON Explain file to PNG
