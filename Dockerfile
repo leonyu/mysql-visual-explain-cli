@@ -2,10 +2,9 @@
 
 FROM docker.io/library/debian:testing-slim AS builder
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
   p7zip-full \
   python3-cairocffi \
-  python3-poetry \
   && rm -rf /var/lib/apt/lists/*
 
 COPY / /stage
