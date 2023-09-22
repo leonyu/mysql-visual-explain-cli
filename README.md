@@ -21,7 +21,7 @@ chmod +x ./mysql_visual_explain_cli
 ### Pipe EXPLAIN Output from MySQL to CLI
 
 ```
-mysql example.com -ABN --raw -e "EXPLAIN FORMAT=JSON SELECT * FROM HelloWorld;" | ./mysql_visual_explain_cli - hello_world_explained.png
+mysql --raw --skip-column-names -e "EXPLAIN FORMAT=JSON SELECT * FROM INFORMATION_SCHEMA.COLUMNS;" | ./mysql_visual_explain_cli - columns_explained.png
 ```
 
 ### Development (Poetry)
