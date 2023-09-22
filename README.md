@@ -9,25 +9,26 @@
 ```sh
 sudo apt-get install python3-cairocffi
 
-curl -LO --output-dir ~ https://github.com/leonyu/mysql-visual-explain-cli/releases/latest/download/mysql_visual_explain_cli.pyz
+curl -L https://github.com/leonyu/mysql-visual-explain-cli/releases/latest/download/mysql_visual_explain_cli.pyz -o ./mysql_visual_explain_cli
+chmod +x ./mysql_visual_explain_cli
 ```
 
 ### Convert JSON Explain file to PNG
 ```
-python3 ~/mysql_visual_explain_cli.pyz explain.json explain.png
+./mysql_visual_explain_cli explain.json explain.png
 ```
 
 ### Pipe EXPLAIN Output from MySQL to CLI
 
 ```
-mysql example.com -ABN --raw -e "EXPLAIN FORMAT=JSON SELECT * FROM HelloWorld;" | python3 ~/mysql_visual_explain_cli.pyz - hello_world_explained.png
+mysql example.com -ABN --raw -e "EXPLAIN FORMAT=JSON SELECT * FROM HelloWorld;" | ./mysql_visual_explain_cli - hello_world_explained.png
 ```
 
 ### Development (Poetry)
 
 ```sh
 poetry install
-poetry run python ./mysql_visual_explain_cli explain.json explain.png
+poetry run python ./mysql_visual_explain_cli/ explain.json explain.png
 ```
 
 ## Notes
