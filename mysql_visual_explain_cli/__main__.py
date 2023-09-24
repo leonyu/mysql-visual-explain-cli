@@ -1,5 +1,6 @@
 
 import argparse
+import pathlib
 
 from query_analysis.explain_renderer import ExplainContext, decode_json
 
@@ -11,16 +12,22 @@ def render(json_str: str, output_path: str):
     ctx = ExplainContext(json_data, None)
     ctx.init_canvas(None, None, lambda x, y, w, h: None)
     ctx.layout()
-    ctx.export_to_png(output_path)
+    extension = pathlib.Path(output_path).suffix
+    if extension == '.png':
+        ctx.export_to_png(output_path)
+    elif extension == '.svg':
+        ctx.export_to_svg(output_path)
+    else:
+        raise ValueError(f'Unsupported extension: {extension}')
 
 
 def main():
     parser = argparse.ArgumentParser(
-        description='Convert MySQL FORMAT=JSON EXPLAIN to PNG file.')
+        description='Convert MySQL FORMAT=JSON EXPLAIN to PNG or SVG file.')
     parser.add_argument('infile',
                         type=argparse.FileType('r'),
                         help='Input JSON file (Use - for stdin)')
-    parser.add_argument('outfile', help='Output PNG file path')
+    parser.add_argument('outfile', help='Output PNG or SVG file path')
     args = parser.parse_args()
 
     with args.infile as file:

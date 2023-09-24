@@ -36,6 +36,12 @@ class Surface(object):
         cairo.cairo_surface_write_to_png(self.s, file.encode())
 
 
+class SVGSurface(Surface):
+    def __init__(self, filename: str, width=None, height=None):
+        Surface.__init__(self)
+        self.s = cairo.cairo_svg_surface_create(filename.encode(), width, height)
+
+
 class ImageSurface(Surface):
     def __init__(self, format=cairo.CAIRO_FORMAT_ARGB32, width=None, height=None, surfobj=None):
         Surface.__init__(self)

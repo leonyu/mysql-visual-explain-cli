@@ -26,7 +26,7 @@ import logging
 from cairocffi import cairo
 
 from graphics.canvas import VBoxFigure, Canvas, DiamondShapeFigure, RectangleShapeFigure, TextFigure, HFill, draw_varrow, draw_harrow
-from graphics.cairo_utils import ImageSurface, Context
+from graphics.cairo_utils import ImageSurface, Context, SVGSurface
 
 
 def log_error(error):
@@ -1681,6 +1681,11 @@ class ExplainContext:
         cr = Context(img)
         self._canvas.repaint(cr, 0, 0, self.size[0], self.size[1])
         img.write_to_png(path)
+
+    def export_to_svg(self, path):
+        img = SVGSurface(path, width=self.size[0], height=self.size[1])
+        cr = Context(img)
+        self._canvas.repaint(cr, 0, 0, self.size[0], self.size[1])
 
 
     def layout(self, padding = 20):
