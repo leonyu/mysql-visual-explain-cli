@@ -2,6 +2,8 @@
 
 [MySQL Workbench](https://github.com/mysql/mysql-workbench/) comes with a Visual Explain feature that is written in Python using [Cairo](https://www.cairographics.org/). This project is simply extracts that code and provides a minimal CLI for it.
 
+Since Cairo supports both PNG and SVG, with only a few line changes, I was able to added support for SVG. However, due to the fact that underlying code vectorizes text, the SVG output is generally larger than PNG output.
+
 ## Usages
 
 ### Install
@@ -13,23 +15,24 @@ curl -L https://github.com/leonyu/mysql-visual-explain-cli/releases/latest/downl
 chmod +x ./mysql_visual_explain_cli
 ```
 
-### Convert JSON Explain file to PNG
-```
+### Convert JSON Explain file to PNG/SVG
+
+```sh
 ./mysql_visual_explain_cli explain.json explain.png
+./mysql_visual_explain_cli explain.json explain.svg
 ```
 
-### Pipe EXPLAIN Output from MySQL to CLI
+### Pipe EXPLAIN Output from MySQL
 
-```
+```sh
 mysql --raw --skip-column-names -e "EXPLAIN FORMAT=JSON SELECT * FROM INFORMATION_SCHEMA.COLUMNS;" | ./mysql_visual_explain_cli - columns_explained.png
 ```
 
-### Development (Poetry)
+## Example Outputs
 
-```sh
-poetry install
-poetry run python ./mysql_visual_explain_cli/ explain.json explain.png
-```
+| PNG                                   | SVG                                   |
+| ------------------------------------- | ------------------------------------- |
+| ![PNG exampe](examples/mysql_doc.png) | ![SVG exampe](examples/mysql_doc.svg) |
 
 ## Notes
 
