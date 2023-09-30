@@ -3,7 +3,7 @@
 FROM docker.io/library/debian:testing-slim AS builder
 
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
-  p7zip-full \
+  unzip \
   python3-cairocffi \
   && rm -rf /var/lib/apt/lists/*
 
