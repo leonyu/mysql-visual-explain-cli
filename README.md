@@ -1,8 +1,8 @@
 # MySQL Visual Explain CLI
 
-[MySQL Workbench](https://github.com/mysql/mysql-workbench/) comes with a Visual Explain feature that is written in Python using [Cairo](https://www.cairographics.org/). This project is simply extracts that code and provides a minimal CLI for it.
+[MySQL Workbench](https://github.com/mysql/mysql-workbench/) comes with a Visual Explain feature that is written in Python using [Cairo](https://www.cairographics.org/). This project simply extracts that code and provides a minimal CLI for it.
 
-Since Cairo supports both PNG and SVG, with only a few line changes, I was able to added support for SVG. However, due to the fact that underlying code vectorizes text, the SVG output is generally larger than PNG output.
+Since Cairo supports both PNG and SVG, with only a few line changes, I was able to add support for SVG. However, due to the fact that underlying code vectorizes input text, the SVG output is generally larger than PNG output.
 
 ## Usages
 
@@ -32,13 +32,13 @@ mysql --raw --skip-column-names -e "EXPLAIN FORMAT=JSON SELECT * FROM INFORMATIO
 
 | PNG                                   | SVG                                   |
 | ------------------------------------- | ------------------------------------- |
-| ![PNG exampe](examples/mysql_doc.png) | ![SVG exampe](examples/mysql_doc.svg) |
+| ![PNG example](examples/mysql_doc.png) | ![SVG example](examples/mysql_doc.svg) |
 
 ## Notes
 
-The MySQL Workbench Python code calls Cairo C directly via [FFI](https://en.wikipedia.org/wiki/Foreign_function_interface) instead of the more common [Pycairo](https://pypi.org/project/pycairo/) library, thus this project depeneds on [CairoCFFI](https://pypi.org/project/cairocffi/)
+The MySQL Workbench Python code calls Cairo C directly via [FFI](https://en.wikipedia.org/wiki/Foreign_function_interface) instead of the more common [Pycairo](https://pypi.org/project/pycairo/) library, thus this project depends on [CairoCFFI](https://pypi.org/project/cairocffi/)
 
-The following C functions appear to have been patched or used a different version compare to what is distrubted with modern Debian distributions.
+The following C functions appear to have been patched compared to what is distributed with modern Debian distributions.
 
 * `cairo.cairo_text_extents()`
 * `cairo.cairo_set_dash()`
