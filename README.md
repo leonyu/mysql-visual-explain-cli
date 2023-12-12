@@ -8,6 +8,8 @@ Since Cairo supports both PNG and SVG, with only a few line changes, I was able 
 
 ### Install
 
+Provided releases are [Python 3 zipapp](https://docs.python.org/3/library/zipapp.html).
+
 ```sh
 sudo apt-get install python3-cairocffi
 
