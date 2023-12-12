@@ -1,6 +1,6 @@
 # MySQL Visual Explain CLI
 
-[MySQL Workbench](https://github.com/mysql/mysql-workbench/) comes with a Visual Explain feature that is written in Python using [Cairo](https://www.cairographics.org/). This project simply extracts that code and provides a minimal CLI for it.
+[MySQL Workbench](https://github.com/mysql/mysql-workbench/) comes with a Visual Explain feature that is written in Python using [Cairo](https://www.cairographics.org/). This project simply extracts that code and provides a minimalist CLI for it.
 
 Since Cairo supports both PNG and SVG, with only a few line changes, I was able to add support for SVG. However, due to the fact that underlying code vectorizes input text, the SVG output is generally larger than PNG output.
 
