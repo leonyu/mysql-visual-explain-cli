@@ -1,8 +1,22 @@
 
 import argparse
 import pathlib
+from cairocffi import cairo
 
 from query_analysis.explain_renderer import ExplainContext, decode_json
+from graphics.cairo_utils import ImageSurface, Context, Surface
+
+
+class SVGSurface(Surface):
+    def __init__(self, filename: str, width=None, height=None):
+        Surface.__init__(self)
+        self.s = cairo.cairo_svg_surface_create(filename.encode(), width, height)
+
+
+def export_to_svg(ec: ExplainContext, path: str):
+    img = SVGSurface(path, width=ec.size[0], height=ec.size[1])
+    cr = Context(img)
+    ec._canvas.repaint(cr, 0, 0, ec.size[0], ec.size[1])
 
 
 def render(json_str: str, output_path: str):
@@ -16,7 +30,7 @@ def render(json_str: str, output_path: str):
     if extension == '.png':
         ctx.export_to_png(output_path)
     elif extension == '.svg':
-        ctx.export_to_svg(output_path)
+        export_to_svg(ctx, output_path)
     else:
         raise ValueError(f'Unsupported extension: {extension}')
 
