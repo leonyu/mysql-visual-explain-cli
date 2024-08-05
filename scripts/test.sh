@@ -9,6 +9,8 @@ for f in "$SCRIPT_DIR"/../fixtures/*.json; do
     echo "Testing conversion of $f to PNG and SVG"
     output_basename="$(basename "$f" .json)"
     python3 "$SCRIPT_DIR"/../dist/mysql_visual_explain_cli.pyz "$f" "$TMP_DIR/$output_basename.png"
+    file "$TMP_DIR/$output_basename.png"
     python3 "$SCRIPT_DIR"/../dist/mysql_visual_explain_cli.pyz "$f" "$TMP_DIR/$output_basename.svg"
+    file "$TMP_DIR/$output_basename.svg"
 done
 ls -l "$TMP_DIR"
