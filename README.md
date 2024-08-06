@@ -32,9 +32,9 @@ mysql --raw --skip-column-names -e "EXPLAIN FORMAT=JSON SELECT * FROM INFORMATIO
 
 ## Example Outputs
 
-| PNG                                   | SVG                                   |
-| ------------------------------------- | ------------------------------------- |
-| ![PNG example](examples/mysql_doc.png) | ![SVG example](examples/mysql_doc.svg) |
+| PNG                                     | SVG                                     |
+| --------------------------------------- | --------------------------------------- |
+| ![PNG example](reference/mysql_doc.png) | ![SVG example](reference/mysql_doc.svg) |
 
 ## Notes
 
