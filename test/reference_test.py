@@ -11,6 +11,8 @@ import cairosvg
 import PIL
 import pytest
 
+PYZ_BIN = "./dist/mysql_visual_explain_cli.pyz"
+
 
 def compare_png(png1: str, png2: str) -> float:
     image1 = PIL.Image.open(png1)
@@ -37,23 +39,19 @@ def compare_svg(svg1: str, svg2: str) -> float:
 
 @pytest.mark.parametrize("json_file", glob.glob("./fixtures/*.json"))
 class TestClass:
-    pyz_bin = "./dist/mysql_visual_explain_cli.pyz"
-    output_dir = "/tmp"
+    output_dir = tempfile.mkdtemp(prefix="mysql_visual_explain_cli")
 
     def make_file(self, json_file: str, output_ext: str) -> tuple[str, str]:
         json_path = pathlib.Path(json_file)
         ref_file = os.path.join("reference", f"{json_path.stem}.{output_ext}")
         assert os.path.exists(ref_file)
         output_file = os.path.join(self.output_dir, f"{json_path.stem}.{output_ext}")
-        subprocess.run(
-            [sys.executable, self.pyz_bin, json_file, output_file], check=True
-        )
+        subprocess.run([sys.executable, PYZ_BIN, json_file, output_file], check=True)
         assert os.path.exists(output_file)
         return (output_file, ref_file)
 
     def setup_class(self):
-        assert os.path.exists(self.pyz_bin) == True
-        self.output_dir = tempfile.mkdtemp(prefix="mysql_visual_explain_cli")
+        assert os.path.exists(PYZ_BIN)
 
     def test_png_image(self, json_file: str):
         (output_file, ref_file) = self.make_file(json_file, "png")
