@@ -3,8 +3,8 @@ import argparse
 import pathlib
 from cairocffi import cairo
 
-from query_analysis.explain_renderer import ExplainContext, decode_json
-from graphics.cairo_utils import Context, Surface
+from mysql_visual_explain_cli.query_analysis.explain_renderer import ExplainContext, decode_json
+from mysql_visual_explain_cli.graphics.cairo_utils import Context, Surface
 
 
 class SVGSurface(Surface):

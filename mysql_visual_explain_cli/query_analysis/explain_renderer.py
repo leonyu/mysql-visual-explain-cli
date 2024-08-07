@@ -26,8 +26,8 @@ import logging
 
 from cairocffi import cairo
 
-from graphics.canvas import VBoxFigure, Canvas, DiamondShapeFigure, RectangleShapeFigure, TextFigure, HFill, draw_varrow, draw_harrow
-from graphics.cairo_utils import ImageSurface, Context
+from mysql_visual_explain_cli.graphics.canvas import VBoxFigure, Canvas, DiamondShapeFigure, RectangleShapeFigure, TextFigure, HFill, draw_varrow, draw_harrow
+from mysql_visual_explain_cli.graphics.cairo_utils import ImageSurface, Context
 
 
 def log_error(error):
