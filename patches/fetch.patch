@@ -1,12 +1,11 @@
---- b/mysql_visual_explain_cli/graphics/cairo_utils.py
-+++ a/mysql_visual_explain_cli/graphics/cairo_utils.py
-@@ -20,7 +20,9 @@
+--- b/src/mysql_visual_explain_cli/graphics/cairo_utils.py
++++ a/src/mysql_visual_explain_cli/graphics/cairo_utils.py
+@@ -20,7 +20,8 @@
  # along with this program; if not, write to the Free Software Foundation, Inc.,
  # 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
 
 +import cairocffi
 +from cairocffi import cairo
-+
 -import cairo
  from math import ceil, floor, fabs, atan, pi
 
@@ -53,8 +52,8 @@
 
 
 
---- b/mysql_visual_explain_cli/query_analysis/explain_renderer.py
-+++ a/mysql_visual_explain_cli/query_analysis/explain_renderer.py
+--- b/src/mysql_visual_explain_cli/query_analysis/explain_renderer.py
++++ a/src/mysql_visual_explain_cli/query_analysis/explain_renderer.py
 @@ -20,15 +20,13 @@
  # along with this program; if not, write to the Free Software Foundation, Inc.,
  # 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA

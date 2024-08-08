@@ -22,7 +22,6 @@
 
 import cairocffi
 from cairocffi import cairo
-
 from math import ceil, floor, fabs, atan, pi
 
 
