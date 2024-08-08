@@ -22,8 +22,8 @@ def export_to_svg(ec: ExplainContext, path: str):
 
 def render(json_str: str, output_path: str):
     json_data = decode_json(json_str)
-    if 'query_block' not in json_data:
-        raise ValueError('Input file does not contain a MySQL EXPLAIN JSON')
+    if not isinstance(json_data, dict) or not isinstance(json_data.get("query_block"), dict):
+        raise ValueError("Input file does not contain a MySQL EXPLAIN JSON")
     ctx = ExplainContext(json_data, None)
     ctx.init_canvas(None, None, lambda x, y, w, h: None)
     ctx.layout()
@@ -46,8 +46,7 @@ def main():
     args = parser.parse_args()
 
     with args.infile as file:
-        json_data = file.read().replace('\n', '')
-        render(json_data, args.outfile)
+        render(file.read(), args.outfile)
 
 
 if __name__ == '__main__':
