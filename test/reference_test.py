@@ -44,18 +44,12 @@ def compare_png(png1: str, png2: str) -> float:
     return sum(itertools.chain.from_iterable(diff.getdata())) / (256 * (width * height))
 
 
-def remove_pt(svg_content: str) -> str:
-    return re.sub(r'"(\d+)pt"', r'"\1"', svg_content)
-
-
 def compare_svg(svg1: str, svg2: str) -> float:
-    svg1_content = pathlib.Path(svg1).read_text()
-    svg2_content = pathlib.Path(svg2).read_text()
     with tempfile.TemporaryDirectory() as tmp:
         png1 = f"{tmp}/svg1.png"
         png2 = f"{tmp}/svg2.png"
-        cairosvg.svg2png(remove_pt(svg1_content), write_to=png1)
-        cairosvg.svg2png(remove_pt(svg2_content), write_to=png2)
+        cairosvg.svg2png(url=svg1, write_to=png1)
+        cairosvg.svg2png(url=svg2, write_to=png2)
         return compare_png(png1, png2)
 
 

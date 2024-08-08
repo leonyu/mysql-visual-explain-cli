@@ -1,7 +1,7 @@
 
 import argparse
 import pathlib
-from cairocffi import cairo
+from cairocffi import cairo, constants
 
 from mysql_visual_explain_cli.query_analysis.explain_renderer import ExplainContext, decode_json
 from mysql_visual_explain_cli.graphics.cairo_utils import Context, Surface
@@ -11,6 +11,7 @@ class SVGSurface(Surface):
     def __init__(self, filename: str, width=None, height=None):
         Surface.__init__(self)
         self.s = cairo.cairo_svg_surface_create(filename.encode(), width, height)
+        cairo.cairo_svg_surface_set_document_unit(self.s, constants.SVG_UNIT_USER)
 
 
 def export_to_svg(ec: ExplainContext, path: str):
