@@ -55,34 +55,27 @@
 
 --- b/mysql_visual_explain_cli/query_analysis/explain_renderer.py
 +++ a/mysql_visual_explain_cli/query_analysis/explain_renderer.py
-@@ -20,18 +20,18 @@
+@@ -20,15 +20,13 @@
  # along with this program; if not, write to the Free Software Foundation, Inc.,
  # 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
 
-+import io
-+import json
-+import logging
 -import mforms
--
 
-+from cairocffi import cairo
+
 -from workbench.log import log_error
++from logging import exception as log_error
 
-+from mysql_visual_explain_cli.graphics.canvas import VBoxFigure, Canvas, DiamondShapeFigure, RectangleShapeFigure, TextFigure, HFill, draw_varrow, draw_harrow
-+from mysql_visual_explain_cli.graphics.cairo_utils import ImageSurface, Context
-
+-
 -from workbench.graphics.canvas import VBoxFigure, Canvas, DiamondShapeFigure, RectangleShapeFigure, TextFigure, HFill, draw_varrow, draw_harrow
 -from workbench.graphics.cairo_utils import ImageSurface, Context
 -import cairo
++from mysql_visual_explain_cli.graphics.canvas import VBoxFigure, Canvas, DiamondShapeFigure, RectangleShapeFigure, TextFigure, HFill, draw_varrow, draw_harrow
++from mysql_visual_explain_cli.graphics.cairo_utils import ImageSurface, Context
++from cairocffi import cairo
 
-+def log_error(error):
-+    logging.exception(error)
--import io
--import json
-
-
- def decode_json(text):
-@@ -426,9 +426,7 @@
+ import io
+ import json
+@@ -426,9 +424,7 @@
 
      @property
      def rows_count(self):
