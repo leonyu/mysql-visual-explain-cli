@@ -28,22 +28,19 @@ def compare_png(png1: str, png2: str) -> float:
     return sum(itertools.chain.from_iterable(diff.getdata())) / (256 * (width * height))
 
 
-def compare_svg(svg1: str, svg2: str) -> float:
-    with tempfile.TemporaryDirectory() as tmp:
-        png1 = f"{tmp}/svg1.png"
-        png2 = f"{tmp}/svg2.png"
-        cairosvg.svg2png(url=svg1, write_to=png1)
-        cairosvg.svg2png(url=svg2, write_to=png2)
-        return compare_png(png1, png2)
+def pngify(file: str, tmpdir: dir) -> float:
+    if file.endswith(".png"):
+        return file
+    if file.endswith(".svg"):
+        pngfile = os.path.join(tmpdir, ".png")
+        cairosvg.svg2png(url=file, write_to=pngfile)
+        return pngfile
+    raise ValueError(f"Unsupported image type: {file}")
 
 
 def compare_images(file1: str, file2: str) -> float:
-    if file1.endswith("png") and file2.endswith("png"):
-        return compare_png(file1, file2)
-    elif file1.endswith("svg") and file2.endswith("svg"):
-        return compare_svg(file1, file2)
-    else:
-        raise ValueError(f"Unsupported comparison: {file1} {file2}")
+    with tempfile.TemporaryDirectory() as tmpdir:
+        return compare_png(pngify(file1, tmpdir), pngify(file2, tmpdir))
 
 
 def render(invoke_type: InvocationType, infile: str, outfile: str):
