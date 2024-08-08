@@ -9,7 +9,7 @@ import tempfile
 import cairosvg
 import PIL
 
-from mysql_visual_explain_cli import __main__
+from mysql_visual_explain_cli import main
 
 PYZ_BIN = "./dist/mysql_visual_explain_cli.pyz"
 
@@ -47,7 +47,7 @@ def render(invoke_type: InvocationType, infile: str, outfile: str):
     match invoke_type:
         case InvocationType.CODE:
             with io.open(infile) as file:
-                __main__.render(file.read(), outfile)
+                main.render(file.read(), outfile)
         case InvocationType.CLI:
             assert os.path.exists(PYZ_BIN), ".pyz binary does not exist"
             subprocess.run([sys.executable, PYZ_BIN, infile, outfile], check=True)

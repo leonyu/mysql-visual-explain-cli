@@ -5,12 +5,10 @@ description = ""
 authors = ["Leon Yu <leon@leonyu.net>"]
 license = "GPL-2.0-only"
 readme = "README.md"
-packages = [{include = "mysql_visual_explain_cli"}]
 
 [tool.poetry.dependencies]
 python = "^3.11"
 cairocffi = "^1.6.1"
-
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.3.2"
