@@ -54,13 +54,13 @@
 
 --- b/src/mysql_visual_explain_cli/query_analysis/explain_renderer.py
 +++ a/src/mysql_visual_explain_cli/query_analysis/explain_renderer.py
-@@ -20,15 +20,13 @@
+@@ -20,15 +20,11 @@
  # along with this program; if not, write to the Free Software Foundation, Inc.,
  # 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
 
 -import mforms
-
-
+-
+-
 -from workbench.log import log_error
 +from logging import exception as log_error
 

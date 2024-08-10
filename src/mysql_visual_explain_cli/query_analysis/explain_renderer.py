@@ -20,8 +20,6 @@
 # along with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
 
-
-
 from logging import exception as log_error
 
 from mysql_visual_explain_cli.graphics.canvas import VBoxFigure, Canvas, DiamondShapeFigure, RectangleShapeFigure, TextFigure, HFill, draw_varrow, draw_harrow
