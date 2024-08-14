@@ -420,7 +420,7 @@
 <g fill="rgb(0%, 0%, 0%)" fill-opacity="1">
 <use xlink:href="#glyph-3-11" x="78.5" y="326.5"/>
 </g>
-<path fill="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(50%, 50%, 50%)" stroke-opacity="0.9" stroke-dasharray="4" stroke-miterlimit="10" d="M 0.5 0.5 L 121.5 0.5 L 121.5 233.5 L 0.5 233.5 Z M 0.5 0.5 " transform="matrix(1, 0, 0, 1, 20, 103)"/>
+<path fill="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(50%, 50%, 50%)" stroke-opacity="0.9" stroke-dasharray="4 2" stroke-miterlimit="10" d="M 0.5 0.5 L 121.5 0.5 L 121.5 233.5 L 0.5 233.5 Z M 0.5 0.5 " transform="matrix(1, 0, 0, 1, 20, 103)"/>
 <g fill="rgb(0%, 0%, 0%)" fill-opacity="1">
 <use xlink:href="#glyph-4-0" x="30" y="35"/>
 <use xlink:href="#glyph-4-1" x="37.78" y="35"/>

@@ -451,7 +451,7 @@
 <use xlink:href="#glyph-1-15" x="327.4" y="436.5"/>
 <use xlink:href="#glyph-1-16" x="333.51" y="436.5"/>
 </g>
-<path fill="none" stroke-width="2" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(50%, 50%, 50%)" stroke-opacity="0.9" stroke-dasharray="4" stroke-miterlimit="10" d="M 0.5 0.5 L 372.5 0.5 L 372.5 266.5 L 0.5 266.5 Z M 0.5 0.5 " transform="matrix(1, 0, 0, 1, 20, 192)"/>
+<path fill="none" stroke-width="2" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(50%, 50%, 50%)" stroke-opacity="0.9" stroke-dasharray="4 2" stroke-miterlimit="10" d="M 0.5 0.5 L 372.5 0.5 L 372.5 266.5 L 0.5 266.5 Z M 0.5 0.5 " transform="matrix(1, 0, 0, 1, 20, 192)"/>
 <path fill="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-miterlimit="10" d="M 483.5 103 L 483.5 80 "/>
 <path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 483.5 73 L 480 83.5 L 487 83.5 Z M 483.5 73 "/>
 <path fill="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-miterlimit="10" d="M 248 122.5 L 431 122.5 "/>

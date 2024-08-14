@@ -23,7 +23,7 @@
          cairo.cairo_restore(self.cr)
   
      def set_dash(self, dashes, offset):
-+        cairo.cairo_set_dash(self.cr, dashes, 1, offset)
++        cairo.cairo_set_dash(self.cr, dashes, len(dashes), offset)
 -        cairo.cairo_set_dash(self.cr, dashes, offset)
 
      def set_font(self, family, italic=False, bold=False):

@@ -127,7 +127,7 @@ class Context(object):
         cairo.cairo_restore(self.cr)
  
     def set_dash(self, dashes, offset):
-        cairo.cairo_set_dash(self.cr, dashes, 1, offset)
+        cairo.cairo_set_dash(self.cr, dashes, len(dashes), offset)
 
     def set_font(self, family, italic=False, bold=False):
         cairo.cairo_select_font_face(self.cr, family.encode(), cairo.CAIRO_FONT_SLANT_ITALIC if italic else cairo.CAIRO_FONT_SLANT_NORMAL, cairo.CAIRO_FONT_WEIGHT_BOLD if bold else cairo.CAIRO_FONT_WEIGHT_NORMAL)

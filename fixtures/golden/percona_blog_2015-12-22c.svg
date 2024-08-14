@@ -225,7 +225,7 @@
 <use xlink:href="#glyph-2-5" x="77.779" y="143.5"/>
 <use xlink:href="#glyph-2-0" x="83.895" y="143.5"/>
 </g>
-<path fill-rule="nonzero" fill="rgb(100%, 100%, 100%)" fill-opacity="1" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-dasharray="2" stroke-miterlimit="10" d="M 0.5 0.5 L 135.5 0.5 L 135.5 29.5 L 0.5 29.5 Z M 0.5 0.5 " transform="matrix(1, 0, 0, 1, 171, 103)"/>
+<path fill-rule="nonzero" fill="rgb(100%, 100%, 100%)" fill-opacity="1" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-dasharray="2 2" stroke-miterlimit="10" d="M 0.5 0.5 L 135.5 0.5 L 135.5 29.5 L 0.5 29.5 Z M 0.5 0.5 " transform="matrix(1, 0, 0, 1, 171, 103)"/>
 <g fill="rgb(0%, 0%, 0%)" fill-opacity="1">
 <use xlink:href="#glyph-0-14" x="183.5" y="119.5"/>
 <use xlink:href="#glyph-0-15" x="190.172" y="119.5"/>
