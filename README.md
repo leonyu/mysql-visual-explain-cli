@@ -38,9 +38,9 @@ mysql --raw --skip-column-names -e "EXPLAIN FORMAT=JSON SELECT * FROM INFORMATIO
 
 ## Notes
 
-The MySQL Workbench Python code calls Cairo C directly via [FFI](https://en.wikipedia.org/wiki/Foreign_function_interface) instead of the more common [Pycairo](https://pypi.org/project/pycairo/) library, thus this project depends on [CairoCFFI](https://pypi.org/project/cairocffi/)
+The MySQL Workbench Python code calls Cairo C ABI via [SWIG](https://en.wikipedia.org/wiki/SWIG) bindings, thus this project depends on [CairoCFFI](https://pypi.org/project/cairocffi/) which provides a similar facility via [FFI](https://en.wikipedia.org/wiki/Foreign_function_interface).
 
-MySQL Workbench uses [Swig typemap to wrap some C functions](https://github.com/mysql/mysql-workbench/blob/8.0/library/forms/swig/cairo.i) so the function signatures exposed to their Python code are easier to use. Those wrapped functions include `cairo.cairo_text_extents()` and `cairo.cairo_set_dash()`. The Swig typemap also performed `str` to `byte` conversion for the Python code. These changes have to be unpatched in this project.
+MySQL Workbench uses [Swig typemap to wrap some C functions](https://github.com/mysql/mysql-workbench/blob/8.0/library/forms/swig/cairo.i) so the function signatures exposed are more Pythonic. Those wrapped functions with different APIs include `cairo.cairo_text_extents()` and `cairo.cairo_set_dash()`. The Swig typemap also performed `str` to `byte` conversion for the Python code. These changes have to be unpatched in this project.
 
 ## License
 
